@@ -2,6 +2,7 @@ import alfy from 'alfy'
 import Odesli from 'odesli.js'
 import fs from 'fs'
 import axios from 'axios'
+import process from 'node:process'
 
 const odesli = new Odesli({
 	version: 'v1-alpha.1'
@@ -70,6 +71,38 @@ const platformMetadata = {
   }
 }
 
+function GetEnvironmentVar(varname)
+{
+    var result = process.env[varname];
+    if( result != undefined )
+        return result;
+    else
+        return '1';
+}
+
+var config = new Map([
+  ['spotify', GetEnvironmentVar('spotify')],
+  ['itunes', GetEnvironmentVar('itunes')],
+  ['appleMusic', GetEnvironmentVar('appleMusic')],
+  ['youtube', GetEnvironmentVar('youtube')],
+  ['youtubeMusic', GetEnvironmentVar('youtubeMusic')],
+  ['google', GetEnvironmentVar('google')],
+  ['googleStore', GetEnvironmentVar('googleStore')],
+  ['pandora', GetEnvironmentVar('pandora')],
+  ['deezer', GetEnvironmentVar('deezer')],
+  ['tidal', GetEnvironmentVar('tidal')],
+  ['amazonStore', GetEnvironmentVar('amazonStore')],
+  ['amazonMusic', GetEnvironmentVar('amazonMusic')],
+  ['soundcloud', GetEnvironmentVar('soundcloud')],
+  ['napster', GetEnvironmentVar('napster')],
+  ['yandex', GetEnvironmentVar('yandex')],
+  ['spinrilla', GetEnvironmentVar('spinrilla')],
+  ['audius', GetEnvironmentVar('audius')],
+  ['audiomack', GetEnvironmentVar('audiomack')],
+  ['anghami', GetEnvironmentVar('anghami')],
+  ['boomplay', GetEnvironmentVar('boomplay')]
+])
+
 const cacheThumbnail = (url) => {
   if (!fs.existsSync('./cache')) {
     fs.mkdirSync('./cache')
@@ -90,7 +123,15 @@ const cacheThumbnail = (url) => {
 }
 
 odesli.fetch(alfy.input).then(song => {
-  const platforms = Object.keys(song.linksByPlatform)
+  var platforms = Object.keys(song.linksByPlatform)
+  config.forEach(function(value, key) {
+        if (value == '0') {
+          const index = platforms.indexOf(key)
+          if (index > -1) {
+            platforms.splice(index, 1)
+          }
+        }
+  })
   const links = platforms.map((platform) => ({
     title: platformMetadata[platform].displayName,
     arg: song.linksByPlatform[platform].url,
