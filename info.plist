@@ -4,6 +4,8 @@
 <dict>
 	<key>bundleid</key>
 	<string>com.kobitate.alfred-odesli</string>
+	<key>category</key>
+	<string>Internet</string>
 	<key>connections</key>
 	<dict>
 		<key>7EF1728B-E591-4A2C-8859-C8B6D66317F8</key>
@@ -66,7 +68,7 @@
 				<key>queuemode</key>
 				<integer>1</integer>
 				<key>runningsubtext</key>
-				<string></string>
+				<string>Fetching results from Odesli</string>
 				<key>script</key>
 				<string>./node_modules/.bin/run-node index.js "$1"</string>
 				<key>scriptargtype</key>
@@ -157,7 +159,392 @@
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+			</dict>
+			<key>description</key>
+			<string>Return Amazon Store links</string>
+			<key>label</key>
+			<string>Amazon Store</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>amazonStore</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+			</dict>
+			<key>description</key>
+			<string>Return Amazon Music links</string>
+			<key>label</key>
+			<string>Amazon Music</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>amazonMusic</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+			</dict>
+			<key>description</key>
+			<string>Return Anghami links</string>
+			<key>label</key>
+			<string>Anghami</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>anghami</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+			</dict>
+			<key>description</key>
+			<string>Return Apple Music links</string>
+			<key>label</key>
+			<string>Apple Music</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>appleMusic</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+			</dict>
+			<key>description</key>
+			<string>Return Audiomack links</string>
+			<key>label</key>
+			<string>Audiomack</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>audiomack</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+			</dict>
+			<key>description</key>
+			<string>Return Audius links</string>
+			<key>label</key>
+			<string>Audius</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>audius</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+			</dict>
+			<key>description</key>
+			<string>Return Boomplay links</string>
+			<key>label</key>
+			<string>Boomplay</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>boomplay</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+			</dict>
+			<key>description</key>
+			<string>Return Deezer links</string>
+			<key>label</key>
+			<string>Deezer</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>deezer</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+			</dict>
+			<key>description</key>
+			<string>Return Google Music links</string>
+			<key>label</key>
+			<string>Google Music</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>google</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+			</dict>
+			<key>description</key>
+			<string>Return Google Store links</string>
+			<key>label</key>
+			<string>Google Store</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>googleStore</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+			</dict>
+			<key>description</key>
+			<string>Return iTunes links</string>
+			<key>label</key>
+			<string>iTunes</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>itunes</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+			</dict>
+			<key>description</key>
+			<string>Return Napster links</string>
+			<key>label</key>
+			<string>Napster</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>napster</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+			</dict>
+			<key>description</key>
+			<string>Return Pandora links</string>
+			<key>label</key>
+			<string>Pandora</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>pandora</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+			</dict>
+			<key>description</key>
+			<string>Return SoundCloud links</string>
+			<key>label</key>
+			<string>SoundCloud</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>soundcloud</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+			</dict>
+			<key>description</key>
+			<string>Return Spinrilla links</string>
+			<key>label</key>
+			<string>Spinrilla</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>spinrilla</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+			</dict>
+			<key>description</key>
+			<string>Return Spotify links</string>
+			<key>label</key>
+			<string>Spotify</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>spotify</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+			</dict>
+			<key>description</key>
+			<string>Return Tidal links</string>
+			<key>label</key>
+			<string>Tidal</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>tidal</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+			</dict>
+			<key>description</key>
+			<string>Return Yandex links</string>
+			<key>label</key>
+			<string>Yandex</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>yandex</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+			</dict>
+			<key>description</key>
+			<string>Return YouTube links</string>
+			<key>label</key>
+			<string>YouTube</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>youtube</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+			</dict>
+			<key>description</key>
+			<string>Return YouTube Music links</string>
+			<key>label</key>
+			<string>YouTube Music</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>youtubeMusic</string>
+		</dict>
+	</array>
+	<key>variablesdontexport</key>
 	<array/>
+	<key>version</key>
+	<string>1.1.0</string>
 	<key>webaddress</key>
 	<string>https://kobitate.com</string>
 </dict>
